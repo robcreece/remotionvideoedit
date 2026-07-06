@@ -1,0 +1,21 @@
+{
+	"name": "skz-merch-video",
+	"version": "1.0.0",
+	"private": true,
+	"description": "SKZ RUN IT SEOUL merch teaser hype short (9:16, ~38s) built with Remotion",
+	"scripts": {
+		"dev": "remotion studio",
+		"render": "remotion render SkzMerchTeaser out/skz-merch-teaser.mp4",
+		"still": "remotion still SkzMerchTeaser out/thumbnail.png --frame=45"
+	},
+	"dependencies": {
+		"@remotion/cli": "4.0.485",
+		"react": "19.2.3",
+		"react-dom": "19.2.3",
+		"remotion": "4.0.485"
+	},
+	"devDependencies": {
+		"@types/react": "19.2.7",
+		"typescript": "5.9.3"
+	}
+}
