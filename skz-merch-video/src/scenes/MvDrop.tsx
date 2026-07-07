@@ -2,11 +2,10 @@ import React from 'react';
 import {AbsoluteFill, Sequence, interpolate, useCurrentFrame} from 'remotion';
 import {BRollSlot} from '../components/BRollSlot';
 import {EmojiBurst} from '../components/EmojiBurst';
-import {FringeBackground} from '../components/FringeBackground';
 import {TextPop} from '../components/TextPop';
 import {ASSETS, COLORS, FONT_STACK} from '../constants';
 
-const MemberCard: React.FC<{
+const TeaserCard: React.FC<{
 	src: string | null;
 	label: string;
 	name: string;
@@ -14,7 +13,7 @@ const MemberCard: React.FC<{
 	accent: string;
 }> = ({src, label, name, tagline, accent}) => {
 	const frame = useCurrentFrame();
-	const kenBurns = interpolate(frame, [0, 75], [1.05, 1.15]);
+	const kenBurns = interpolate(frame, [0, 75], [1.05, 1.18]);
 	return (
 		<AbsoluteFill>
 			<AbsoluteFill style={{transform: `scale(${kenBurns})`}}>
@@ -23,7 +22,7 @@ const MemberCard: React.FC<{
 			<div
 				style={{
 					position: 'absolute',
-					bottom: 320,
+					bottom: 200,
 					left: 0,
 					right: 0,
 					textAlign: 'center',
@@ -43,8 +42,8 @@ const MemberCard: React.FC<{
 						})})`,
 					}}
 				>
-					<div style={{fontSize: 84, fontWeight: 900, color: accent}}>{name}</div>
-					<div style={{fontSize: 42, color: COLORS.white, marginTop: 6}}>
+					<div style={{fontSize: 76, fontWeight: 900, color: accent}}>{name}</div>
+					<div style={{fontSize: 40, color: COLORS.white, marginTop: 6}}>
 						{tagline}
 					</div>
 				</div>
@@ -54,84 +53,85 @@ const MemberCard: React.FC<{
 };
 
 /**
- * 3–12s — quick cuts: Bang Chan, Hyunjin, group fringe fits, then the KSPO
- * Dome dates takeover.
+ * 3–12s — quick cuts through the solo teasers, then the sold-out KSPO Dome
+ * dates + album card over the group shot.
  */
 export const MvDrop: React.FC = () => {
 	return (
 		<AbsoluteFill style={{background: COLORS.bgDeep}}>
-			{/* Quick-cut member cards: ~2.3s each */}
+			{/* Quick-cut teaser cards: ~2.3s each */}
 			<Sequence durationInFrames={70}>
-				<MemberCard
+				<TeaserCard
 					src={ASSETS.broll.chan}
-					label="fancam: Bang Chan teaser look"
+					label="teaser: Bang Chan"
 					name="BANG CHAN"
 					tagline="tattooed arm REALNESS 💪"
 					accent={COLORS.red}
 				/>
 			</Sequence>
 			<Sequence from={70} durationInFrames={70}>
-				<MemberCard
-					src={ASSETS.broll.hyunjin}
-					label="fancam: Hyunjin teaser look"
-					name="HYUNJIN"
-					tagline="a whole PRINCE 👑"
+				<TeaserCard
+					src={ASSETS.broll.solo2}
+					label="solo teaser"
+					name="THE VISUALS"
+					tagline="full high-fashion mode 😳"
 					accent={COLORS.purple}
 				/>
 			</Sequence>
 			<Sequence from={140} durationInFrames={70}>
-				<MemberCard
-					src={ASSETS.broll.group}
-					label="teaser: group reflective fringe fits"
-					name="OT8"
-					tagline="reflective fringe DOMINATION"
+				<TeaserCard
+					src={ASSETS.broll.solo3}
+					label="solo teaser"
+					name="ETHEREAL"
+					tagline="cute but DEADLY 🌿"
 					accent={COLORS.yellow}
 				/>
 			</Sequence>
 
-			{/* Floating hype sticker across the member cuts */}
+			{/* Floating hype sticker across the teaser cuts */}
 			<Sequence from={30} durationInFrames={180}>
 				<TextPop
 					enterAt={0}
-					fontSize={54}
+					fontSize={52}
 					color={COLORS.bgDeep}
 					background={COLORS.yellow}
 					rotate={4}
-					top="12%"
+					top="10%"
 				>
-					Fringe serving LOOKS ✨
+					SERVING LOOKS ✨
 				</TextPop>
 			</Sequence>
 
 			{/* KSPO Dome dates finale of this section */}
 			<Sequence from={210} durationInFrames={60}>
 				<AbsoluteFill>
-					<FringeBackground accent={COLORS.yellow} />
-					<TextPop enterAt={0} fontSize={96} color={COLORS.yellow} top="22%">
+					<BRollSlot src={ASSETS.broll.group} label="group teaser" />
+					<AbsoluteFill style={{background: '#000000a8'}} />
+					<TextPop enterAt={0} fontSize={92} color={COLORS.yellow} top="20%">
 						KSPO DOME
 						<br />
-						TAKEOVER
+						SOLD OUT
 					</TextPop>
 					<TextPop
 						enterAt={10}
-						fontSize={66}
+						fontSize={60}
 						color={COLORS.white}
 						rotate={0}
-						top="46%"
+						top="44%"
 					>
-						JUL 25 · 26 · 29
+						5 NIGHTS
 						<br />
-						AUG 1 · 2
+						FROM JUL 25
 					</TextPop>
 					<TextPop
 						enterAt={22}
-						fontSize={52}
+						fontSize={54}
 						color={COLORS.white}
 						background={`${COLORS.red}ee`}
 						rotate={-2}
-						top="66%"
+						top="64%"
 					>
-						5 NIGHTS OF PURE CHAOS 🔥
+						"THIS &amp; THAT" — 08.07 💿
 					</TextPop>
 					<EmojiBurst startAt={8} seed="kspo" emojis={['🔥', '🏟️', '🎫', '😱']} />
 				</AbsoluteFill>

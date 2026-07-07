@@ -37,29 +37,18 @@ npm run still
 If Chrome isn't auto-detected, pass `--browser-executable=<path-to-chrome>`
 to the render command.
 
-## Adding your assets
+## Assets
 
-All asset slots live in [`src/constants.ts`](src/constants.ts) (`ASSETS`).
-Put files in `public/` and set the paths:
+All asset slots live in [`src/constants.ts`](src/constants.ts) (`ASSETS`)
+and point to files in `public/`. The official RUN IT SEOUL teaser images
+and the high-energy boxing promo clip are already wired in
+(`public/teasers/`, `public/broll/boxing.mp4`). Slots accept images
+(`.jpg/.png/.webp`) or videos; any slot set to `null` falls back to a
+stylized placeholder.
 
-```ts
-export const ASSETS: AssetConfig = {
-	voiceover: 'voiceover.mp3', // record the script from the brief
-	music: 'music.mp3', // "RUN IT" hype section or royalty-free K-pop beat
-	broll: {
-		hookFringe: 'broll/fringe-closeup.mp4', // teaser fringe detail
-		chan: 'broll/chan.mp4', // Bang Chan teaser look / fancam
-		hyunjin: 'broll/hyunjin.mp4', // Hyunjin teaser look / fancam
-		group: 'broll/group.mp4', // group reflective fringe teaser
-		stage: 'broll/stage.mp4', // high-movement choreo fancam
-	},
-};
-```
-
-Images work too — swap `OffthreadVideo` for `Img` in
-`src/components/BRollSlot.tsx` or convert stills to short clips. Any slot
-left `null` keeps its stylized placeholder, so partial asset sets still
-render.
+**Voiceover**: record/generate the script (ElevenLabs "Brittany"), save it
+as `public/voiceover.mp3`, and set `voiceover: 'voiceover.mp3'` in
+`src/constants.ts`. Same for an optional `music` bed.
 
 The music bed is automatically ducked under the voiceover and punched up at
 the hook slam and the CTA (see `musicVolume` in `src/SkzMerchVideo.tsx`).

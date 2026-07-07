@@ -7,10 +7,11 @@ import {
 	useCurrentFrame,
 	useVideoConfig,
 } from 'remotion';
+import {BRollSlot} from '../components/BRollSlot';
 import {EmojiBurst} from '../components/EmojiBurst';
 import {FringeBackground} from '../components/FringeBackground';
 import {TextPop} from '../components/TextPop';
-import {COLORS, FONT_STACK} from '../constants';
+import {ASSETS, COLORS, FONT_STACK} from '../constants';
 
 /**
  * Like button that gets "smashed": springs in, then pulses.
@@ -134,10 +135,12 @@ export const Cta: React.FC = () => {
 	});
 	return (
 		<AbsoluteFill style={{background: COLORS.bgDeep, opacity: fadeOut}}>
-			<FringeBackground accent={COLORS.purple} />
+			<BRollSlot src={ASSETS.broll.group} label="group teaser" />
+			<AbsoluteFill style={{background: '#000000b8'}} />
+			<FringeBackground accent={COLORS.purple} intensity={0.5} />
 
 			<TextPop enterAt={5} fontSize={92} color={COLORS.yellow} top="16%">
-				WHICH LOOK
+				WHICH TEASER
 				<br />
 				WRECKED YOU? 👇
 			</TextPop>
@@ -168,12 +171,12 @@ export const Cta: React.FC = () => {
 				>
 					STREAM "RUN IT" 🎧
 					<br />
-					SAVE "THIS &amp; THAT" 💿
+					DAILY SKZ TEA ☕
 				</TextPop>
 			</Sequence>
 
 			<Sequence from={300}>
-				<TextPop enterAt={0} fontSize={110} color={COLORS.purple} top="46%">
+				<TextPop enterAt={0} fontSize={100} color={COLORS.purple} top="34%">
 					STAY STRONG 💜
 				</TextPop>
 			</Sequence>

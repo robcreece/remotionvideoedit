@@ -1,16 +1,19 @@
 import React from 'react';
 import {
 	AbsoluteFill,
+	Img,
 	OffthreadVideo,
 	staticFile,
 	useCurrentFrame,
 } from 'remotion';
 import {COLORS, FONT_STACK} from '../constants';
 
+const IMAGE_RE = /\.(jpe?g|png|webp|avif|gif)$/i;
+
 /**
  * A swappable footage slot. When `src` (a path inside `public/`) is set it
- * plays the clip; otherwise it renders a stylized stage-energy placeholder
- * with animated light streaks, labeled with the clip that belongs there.
+ * shows the image or plays the clip; otherwise it renders a stylized
+ * stage-energy placeholder labeled with the footage that belongs there.
  */
 export const BRollSlot: React.FC<{
 	src: string | null;
@@ -20,13 +23,18 @@ export const BRollSlot: React.FC<{
 	const frame = useCurrentFrame();
 
 	if (src) {
+		const cover = {
+			width: '100%',
+			height: '100%',
+			objectFit: 'cover',
+		} as const;
 		return (
 			<AbsoluteFill>
-				<OffthreadVideo
-					src={staticFile(src)}
-					muted
-					style={{width: '100%', height: '100%', objectFit: 'cover'}}
-				/>
+				{IMAGE_RE.test(src) ? (
+					<Img src={staticFile(src)} style={cover} />
+				) : (
+					<OffthreadVideo src={staticFile(src)} muted style={cover} />
+				)}
 			</AbsoluteFill>
 		);
 	}

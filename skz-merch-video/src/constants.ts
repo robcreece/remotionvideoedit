@@ -39,22 +39,28 @@ export type AssetConfig = {
 	voiceover: string | null;
 	music: string | null;
 	broll: {
-		hookFringe: string | null; // fringe detail close-up for the hook zoom
-		chan: string | null; // Bang Chan teaser shot / fancam
-		hyunjin: string | null; // Hyunjin teaser shot / fancam
-		group: string | null; // group reflective-fringe teaser image or clip
-		stage: string | null; // high-movement choreo clip for the tour section
+		hook: string | null; // group teaser for the hook zoom
+		chan: string | null; // Bang Chan solo teaser (tattoo arm)
+		solo2: string | null; // second solo teaser
+		solo3: string | null; // third solo teaser
+		group: string | null; // OT8 group teaser (dates card + end card)
+		stage: string | null; // high-movement clip for the tour section
+		selfie: string | null; // member selfie polaroid (tour section)
+		bts: string | null; // behind-the-scenes polaroid (tour section)
 	};
 };
 
 export const ASSETS: AssetConfig = {
-	voiceover: null,
+	voiceover: null, // drop in the ElevenLabs VO as public/voiceover.mp3 and set 'voiceover.mp3'
 	music: null,
 	broll: {
-		hookFringe: null,
-		chan: null,
-		hyunjin: null,
-		group: null,
-		stage: null,
+		hook: 'teasers/group.jpg',
+		chan: 'teasers/chan.jpg',
+		solo2: 'teasers/solo-dark.jpg',
+		solo3: 'teasers/solo-plant.jpg',
+		group: 'teasers/group.jpg',
+		stage: 'broll/boxing.mp4',
+		selfie: 'teasers/gym-selfie.jpg',
+		bts: 'teasers/bts-camcorder.jpg',
 	},
 };

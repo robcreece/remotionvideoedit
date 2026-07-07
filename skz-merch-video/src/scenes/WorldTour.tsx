@@ -1,8 +1,10 @@
 import React from 'react';
 import {
 	AbsoluteFill,
+	Img,
 	Sequence,
 	spring,
+	staticFile,
 	useCurrentFrame,
 	useVideoConfig,
 } from 'remotion';
@@ -13,117 +15,147 @@ import {TextPop} from '../components/TextPop';
 import {ASSETS, COLORS, FONT_STACK} from '../constants';
 
 /**
- * Playful "delulu fan theory" chat-bubble popup.
+ * Snapshot that spins in like a taped-up polaroid.
  */
-const DeluluPopup: React.FC<{enterAt: number}> = ({enterAt}) => {
+const Polaroid: React.FC<{
+	src: string | null;
+	caption: string;
+	enterAt: number;
+	bottom: number;
+	left?: number;
+	right?: number;
+	rotate: number;
+}> = ({src, caption, enterAt, bottom, left, right, rotate}) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
-	if (frame < enterAt) {
+	if (frame < enterAt || !src) {
 		return null;
 	}
 	const pop = spring({
 		frame: frame - enterAt,
 		fps,
-		config: {damping: 9, stiffness: 150},
+		config: {damping: 11, stiffness: 140},
 	});
-	const wobble = Math.sin((frame - enterAt) / 7) * 2;
 	return (
 		<div
 			style={{
 				position: 'absolute',
-				bottom: 260,
-				left: 70,
-				right: 70,
-				transform: `scale(${pop}) rotate(${wobble}deg)`,
+				bottom,
+				left,
+				right,
+				width: 430,
+				padding: '16px 16px 18px',
 				background: COLORS.white,
-				borderRadius: 32,
-				padding: '30px 40px',
-				fontFamily: FONT_STACK,
-				boxShadow: '0 12px 50px #00000088',
+				borderRadius: 10,
+				boxShadow: '0 14px 50px #000000aa',
+				transform: `scale(${pop}) rotate(${rotate}deg)`,
 			}}
 		>
-			<div style={{fontSize: 30, color: '#888', marginBottom: 8}}>
-				💬 delulu fan theories dept.
-			</div>
-			<div style={{fontSize: 44, fontWeight: 900, color: '#111', lineHeight: 1.2}}>
-				"petition to sell the MEMBERS as the merch 😭✋"
+			<Img
+				src={staticFile(src)}
+				style={{width: '100%', height: 360, objectFit: 'cover', borderRadius: 6}}
+			/>
+			<div
+				style={{
+					marginTop: 12,
+					textAlign: 'center',
+					fontFamily: FONT_STACK,
+					fontSize: 30,
+					fontWeight: 900,
+					color: '#111',
+				}}
+			>
+				{caption}
 			</div>
 		</div>
 	);
 };
 
 /**
- * 12–25s — merch access dates, album news, hype stats over high-movement
- * stage B-roll.
+ * 12–25s — merch access dates over the high-movement promo clip, fan-buzz
+ * stickers, and behind-the-scenes polaroids.
  */
 export const WorldTour: React.FC = () => {
 	return (
 		<AbsoluteFill style={{background: COLORS.bgDeep}}>
 			<BRollSlot
 				src={ASSETS.broll.stage}
-				label="fancam: high-movement choreo (God's Menu / Chk Chk Boom)"
+				label="fancam: high-movement choreo"
 				accent={COLORS.purple}
 			/>
 			{/* dark scrim so badges read over footage */}
-			<AbsoluteFill style={{background: '#00000055'}} />
+			<AbsoluteFill style={{background: '#00000066'}} />
 
 			<DateBadge
 				title="Online early access"
-				value="JULY 16"
+				value="JUL 16 – 19"
 				enterAt={10}
-				top={220}
+				top={200}
 				accent={COLORS.yellow}
 			/>
 			<DateBadge
-				title="Pre-orders open"
-				value="JULY 27"
+				title="Online pre-order"
+				value="JUL 27 – AUG 5"
 				enterAt={35}
-				top={430}
+				top={410}
 				accent={COLORS.red}
 				fromLeft={false}
 			/>
 			<DateBadge
-				title={`Full album "THIS & THAT"`}
-				value="AUGUST 7"
+				title="Offline sales — show days"
+				value="7.25-26 · 7.29 · 8.1-2"
 				enterAt={60}
-				top={640}
+				top={620}
 				accent={COLORS.purple}
 			/>
 
-			<Sequence from={120}>
+			<Sequence from={130} durationInFrames={150}>
 				<TextPop
 					enterAt={0}
-					fontSize={58}
+					fontSize={60}
 					color={COLORS.bgDeep}
 					background={COLORS.yellow}
 					rotate={-3}
-					top="48%"
+					top="47%"
 				>
-					"RUN IT" TOPPING
-					<br />
-					PRE-VOTES 📈
+					STAYS ARE NOT OKAY 👀
 				</TextPop>
 			</Sequence>
 
-			<DeluluPopup enterAt={200} />
+			<Polaroid
+				src={ASSETS.broll.selfie}
+				caption="the boys rn 🥊"
+				enterAt={200}
+				bottom={170}
+				left={60}
+				rotate={-6}
+			/>
+			<Polaroid
+				src={ASSETS.broll.bts}
+				caption="BTS cam 📸"
+				enterAt={235}
+				bottom={200}
+				right={60}
+				rotate={5}
+			/>
 
 			<Sequence from={300}>
 				<TextPop
 					enterAt={0}
-					fontSize={64}
+					fontSize={58}
 					color={COLORS.white}
 					background={`${COLORS.red}ee`}
 					rotate={2}
-					top="10%"
+					top="45%"
 				>
-					STAYS ARE EATING GOOD
+					JYP knows EXACTLY
 					<br />
-					THIS ERA 🍽️
+					what they're doing 😏
 				</TextPop>
 			</Sequence>
 
 			<EmojiBurst
-				startAt={130}
+				startAt={140}
 				seed="tour"
 				emojis={['📈', '💿', '🛒', '💜', '🔥']}
 				count={8}
