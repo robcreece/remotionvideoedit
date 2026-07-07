@@ -86,30 +86,9 @@ export const WorldTour: React.FC = () => {
 			{/* dark scrim so badges read over footage */}
 			<AbsoluteFill style={{background: '#00000066'}} />
 
-			<DateBadge
-				title="Online early access"
-				value="JUL 16 – 19"
-				enterAt={10}
-				top={200}
-				accent={COLORS.yellow}
-			/>
-			<DateBadge
-				title="Online pre-order"
-				value="JUL 27 – AUG 5"
-				enterAt={35}
-				top={410}
-				accent={COLORS.red}
-				fromLeft={false}
-			/>
-			<DateBadge
-				title="Offline sales — show days"
-				value="7.25-26 · 7.29 · 8.1-2"
-				enterAt={60}
-				top={620}
-				accent={COLORS.purple}
-			/>
-
-			<Sequence from={130} durationInFrames={150}>
+			{/* VO here (29.7–37.3s): "Fans are losing it… early access July 16
+			    to 19 and pre-orders from the 27th… JYP knows exactly…" */}
+			<Sequence from={0} durationInFrames={85}>
 				<TextPop
 					enterAt={0}
 					fontSize={60}
@@ -122,10 +101,33 @@ export const WorldTour: React.FC = () => {
 				</TextPop>
 			</Sequence>
 
+			<DateBadge
+				title="Online early access"
+				value="JUL 16 – 19"
+				enterAt={30}
+				top={200}
+				accent={COLORS.yellow}
+			/>
+			<DateBadge
+				title="Online pre-order"
+				value="JUL 27 – AUG 5"
+				enterAt={60}
+				top={410}
+				accent={COLORS.red}
+				fromLeft={false}
+			/>
+			<DateBadge
+				title="Offline sales — show days"
+				value="7.25-26 · 7.29 · 8.1-2"
+				enterAt={85}
+				top={620}
+				accent={COLORS.purple}
+			/>
+
 			<Polaroid
 				src={ASSETS.broll.selfie}
 				caption="the boys rn 🥊"
-				enterAt={200}
+				enterAt={100}
 				bottom={170}
 				left={60}
 				rotate={-6}
@@ -133,13 +135,13 @@ export const WorldTour: React.FC = () => {
 			<Polaroid
 				src={ASSETS.broll.bts}
 				caption="BTS cam 📸"
-				enterAt={235}
+				enterAt={125}
 				bottom={200}
 				right={60}
 				rotate={5}
 			/>
 
-			<Sequence from={300}>
+			<Sequence from={150}>
 				<TextPop
 					enterAt={0}
 					fontSize={58}
@@ -155,7 +157,7 @@ export const WorldTour: React.FC = () => {
 			</Sequence>
 
 			<EmojiBurst
-				startAt={140}
+				startAt={40}
 				seed="tour"
 				emojis={['📈', '💿', '🛒', '💜', '🔥']}
 				count={8}

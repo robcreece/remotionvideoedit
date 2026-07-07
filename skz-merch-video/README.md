@@ -1,22 +1,18 @@
 # SKZ "RUN IT SEOUL" Merch Teaser Hype Short
 
-A 38-second, 1080×1920 (9:16) Remotion video implementing the "SKZ Merch
-Teaser Drops & Stays Are Selling Their Souls For It 🔥" brief: energetic
-gossip/hype commentary short with quick cuts, text pops, emoji bursts, and
-swappable B-roll slots.
+A 53.5-second, 1080×1920 (9:16) Remotion video implementing the "SKZ Merch
+Teasers Just Dropped & Stays Are SCREAMING 🔥" brief: energetic gossip/hype
+commentary short with quick cuts, text pops, emoji bursts, real teaser
+footage, and an ElevenLabs voiceover.
 
-The video renders complete out of the box using stylized fringe/reflective
-placeholder visuals — no copyrighted footage is bundled. Drop in your own
-teaser images, fancams, voiceover, and music bed to finish it.
+## Scene map (synced to public/voiceover.mp3)
 
-## Scene map (matches the voiceover script)
-
-| Time    | Frames    | Scene       | Content                                                                 |
-| ------- | --------- | ----------- | ----------------------------------------------------------------------- |
-| 0–3s    | 0–89      | `Hook`      | "STAYS, LOCK IN" siren + "MERCH TEASER JUST DROPPED" slam, dramatic zoom |
-| 3–12s   | 90–359    | `MvDrop`    | Quick-cut member cards (Bang Chan / Hyunjin / OT8) + KSPO Dome dates     |
-| 12–25s  | 360–749   | `WorldTour` | Early access Jul 16, pre-orders Jul 27, album Aug 7, delulu popup        |
-| 25–38s  | 750–1139  | `Cta`       | "Which look wrecked you?", like/subscribe animations, STAY strong outro  |
+| Time       | Frames     | Scene       | Content                                                                  |
+| ---------- | ---------- | ----------- | ------------------------------------------------------------------------ |
+| 0–5.8s     | 0–173      | `Hook`      | Zoom on the group teaser, "NEW MERCH TEASERS" slam, siren ticker          |
+| 5.8–29.7s  | 174–889    | `MvDrop`    | Quick-cut teaser cards (Chan → solos → OT8) + sold-out KSPO/album card    |
+| 29.7–37.3s | 890–1119   | `WorldTour` | Merch access dates over the boxing promo clip, polaroid pop-ins           |
+| 37.3–53.5s | 1120–1604  | `Cta`       | "Which teaser wrecked you?", like/subscribe, "STAY STRONG" outro          |
 
 ## Getting started
 

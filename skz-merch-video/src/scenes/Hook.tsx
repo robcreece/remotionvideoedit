@@ -13,7 +13,7 @@ import {ASSETS, COLORS, FONT_STACK} from '../constants';
 export const Hook: React.FC = () => {
 	const frame = useCurrentFrame();
 	// Fast push-in on the teaser over the whole hook.
-	const zoom = interpolate(frame, [0, 90], [1.05, 1.32]);
+	const zoom = interpolate(frame, [0, 174], [1.05, 1.38]);
 	// Screen shake right when the big text slams in.
 	const shake = frame >= 18 && frame < 30 ? Math.sin(frame * 3.1) * 8 : 0;
 	// White flash on the slam.
@@ -64,17 +64,28 @@ export const Hook: React.FC = () => {
 			</TextPop>
 
 			<TextPop
-				enterAt={48}
+				enterAt={55}
 				fontSize={58}
 				color={COLORS.white}
 				background={`${COLORS.red}ee`}
 				rotate={2}
 				top="76%"
 			>
-				RUN IT SEOUL — they look UNREAL 😱
+				RUN IT SEOUL 🏟️
 			</TextPop>
 
-			<EmojiBurst startAt={20} seed="hook" count={10} />
+			<TextPop
+				enterAt={125}
+				fontSize={54}
+				color={COLORS.bgDeep}
+				background={COLORS.yellow}
+				rotate={-3}
+				top="14%"
+			>
+				they look UNREAL 😱
+			</TextPop>
+
+			<EmojiBurst startAt={20} seed="hook" count={14} />
 
 			<AbsoluteFill style={{background: COLORS.white, opacity: flash}} />
 		</AbsoluteFill>

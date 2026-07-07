@@ -2,16 +2,17 @@ export const FPS = 30;
 export const WIDTH = 1080;
 export const HEIGHT = 1920;
 
-// Scene boundaries in frames, matching the voiceover script timings.
-export const HOOK_START = 0; // 0–3s
-export const HOOK_DURATION = 3 * FPS;
-export const MV_DROP_START = HOOK_START + HOOK_DURATION; // 3–12s
-export const MV_DROP_DURATION = 9 * FPS;
-export const WORLD_TOUR_START = MV_DROP_START + MV_DROP_DURATION; // 12–25s
-export const WORLD_TOUR_DURATION = 13 * FPS;
-export const CTA_START = WORLD_TOUR_START + WORLD_TOUR_DURATION; // 25–38s
-export const CTA_DURATION = 13 * FPS;
-export const TOTAL_DURATION = CTA_START + CTA_DURATION; // 1140 frames = 38s
+// Scene boundaries in frames, synced to the recorded ElevenLabs voiceover
+// (public/voiceover.mp3, 52.85s — cut points sit on the sentence pauses).
+export const HOOK_START = 0; // 0–5.8s "Stays, PAUSE everything…"
+export const HOOK_DURATION = 174;
+export const MV_DROP_START = HOOK_START + HOOK_DURATION; // 5.8–29.7s members + dates
+export const MV_DROP_DURATION = 716;
+export const WORLD_TOUR_START = MV_DROP_START + MV_DROP_DURATION; // 29.7–37.3s merch access
+export const WORLD_TOUR_DURATION = 230;
+export const CTA_START = WORLD_TOUR_START + WORLD_TOUR_DURATION; // 37.3–53.5s CTA
+export const CTA_DURATION = 485;
+export const TOTAL_DURATION = CTA_START + CTA_DURATION; // 1605 frames = 53.5s
 
 export const COLORS = {
 	bg: '#0a0a12',
@@ -51,7 +52,7 @@ export type AssetConfig = {
 };
 
 export const ASSETS: AssetConfig = {
-	voiceover: null, // drop in the ElevenLabs VO as public/voiceover.mp3 and set 'voiceover.mp3'
+	voiceover: 'voiceover.mp3', // ElevenLabs "Brittney" social-media voice
 	music: null,
 	broll: {
 		hook: 'teasers/group.jpg',

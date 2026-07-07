@@ -13,7 +13,7 @@ const TeaserCard: React.FC<{
 	accent: string;
 }> = ({src, label, name, tagline, accent}) => {
 	const frame = useCurrentFrame();
-	const kenBurns = interpolate(frame, [0, 75], [1.05, 1.18]);
+	const kenBurns = interpolate(frame, [0, 103], [1.05, 1.18]);
 	return (
 		<AbsoluteFill>
 			<AbsoluteFill style={{transform: `scale(${kenBurns})`}}>
@@ -59,8 +59,9 @@ const TeaserCard: React.FC<{
 export const MvDrop: React.FC = () => {
 	return (
 		<AbsoluteFill style={{background: COLORS.bgDeep}}>
-			{/* Quick-cut teaser cards: ~2.3s each */}
-			<Sequence durationInFrames={70}>
+			{/* Quick-cut teaser cards while the VO name-drops the members
+			    (5.8–19.5s): ~3.4s each */}
+			<Sequence durationInFrames={103}>
 				<TeaserCard
 					src={ASSETS.broll.chan}
 					label="teaser: Bang Chan"
@@ -69,7 +70,7 @@ export const MvDrop: React.FC = () => {
 					accent={COLORS.red}
 				/>
 			</Sequence>
-			<Sequence from={70} durationInFrames={70}>
+			<Sequence from={103} durationInFrames={103}>
 				<TeaserCard
 					src={ASSETS.broll.solo2}
 					label="solo teaser"
@@ -78,7 +79,7 @@ export const MvDrop: React.FC = () => {
 					accent={COLORS.purple}
 				/>
 			</Sequence>
-			<Sequence from={140} durationInFrames={70}>
+			<Sequence from={206} durationInFrames={103}>
 				<TeaserCard
 					src={ASSETS.broll.solo3}
 					label="solo teaser"
@@ -87,9 +88,18 @@ export const MvDrop: React.FC = () => {
 					accent={COLORS.yellow}
 				/>
 			</Sequence>
+			<Sequence from={309} durationInFrames={102}>
+				<TeaserCard
+					src={ASSETS.broll.group}
+					label="group teaser"
+					name="OT8"
+					tagline={'powerful & ethereal 🖤🤍'}
+					accent={COLORS.chromeBright}
+				/>
+			</Sequence>
 
 			{/* Floating hype sticker across the teaser cuts */}
-			<Sequence from={30} durationInFrames={180}>
+			<Sequence from={30} durationInFrames={381}>
 				<TextPop
 					enterAt={0}
 					fontSize={52}
@@ -102,8 +112,8 @@ export const MvDrop: React.FC = () => {
 				</TextPop>
 			</Sequence>
 
-			{/* KSPO Dome dates finale of this section */}
-			<Sequence from={210} durationInFrames={60}>
+			{/* KSPO Dome dates finale of this section (19.5–29.7s) */}
+			<Sequence from={411} durationInFrames={305}>
 				<AbsoluteFill>
 					<BRollSlot src={ASSETS.broll.group} label="group teaser" />
 					<AbsoluteFill style={{background: '#000000a8'}} />
@@ -113,7 +123,7 @@ export const MvDrop: React.FC = () => {
 						SOLD OUT
 					</TextPop>
 					<TextPop
-						enterAt={10}
+						enterAt={40}
 						fontSize={60}
 						color={COLORS.white}
 						rotate={0}
@@ -123,8 +133,9 @@ export const MvDrop: React.FC = () => {
 						<br />
 						FROM JUL 25
 					</TextPop>
+					{/* lands with "…THIS & THAT album on August 7" in the VO */}
 					<TextPop
-						enterAt={22}
+						enterAt={190}
 						fontSize={54}
 						color={COLORS.white}
 						background={`${COLORS.red}ee`}

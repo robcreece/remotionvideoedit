@@ -129,7 +129,7 @@ const SubscribePill: React.FC<{enterAt: number}> = ({enterAt}) => {
  */
 export const Cta: React.FC = () => {
 	const frame = useCurrentFrame();
-	const fadeOut = interpolate(frame, [360, 389], [1, 0], {
+	const fadeOut = interpolate(frame, [455, 484], [1, 0], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
@@ -145,9 +145,10 @@ export const Cta: React.FC = () => {
 				WRECKED YOU? 👇
 			</TextPop>
 
+			{/* "Drop it in the comments, tag your bias…" lands ~40.6s */}
 			<TextPop
-				enterAt={30}
-				exitAt={195}
+				enterAt={100}
+				exitAt={295}
 				fontSize={48}
 				color={COLORS.white}
 				background="#000000cc"
@@ -157,17 +158,18 @@ export const Cta: React.FC = () => {
 				drop your bias in the comments 💬
 			</TextPop>
 
-			<LikeSmash enterAt={60} />
-			<SubscribePill enterAt={90} />
+			<LikeSmash enterAt={140} />
+			<SubscribePill enterAt={180} />
 
-			<Sequence from={200} durationInFrames={95}>
+			{/* "Stream RUN IT and subscribe for daily SKZ tea" ~47.3s */}
+			<Sequence from={300} durationInFrames={120}>
 				<TextPop
 					enterAt={0}
 					fontSize={54}
 					color={COLORS.bgDeep}
 					background={COLORS.yellow}
 					rotate={-2}
-					top="40%"
+					top="38%"
 				>
 					STREAM "RUN IT" 🎧
 					<br />
@@ -175,9 +177,20 @@ export const Cta: React.FC = () => {
 				</TextPop>
 			</Sequence>
 
-			<Sequence from={300}>
-				<TextPop enterAt={0} fontSize={100} color={COLORS.purple} top="34%">
+			{/* "…we do it when we say we will!" ~51.4s */}
+			<Sequence from={425}>
+				<TextPop enterAt={0} fontSize={96} color={COLORS.purple} top="30%">
 					STAY STRONG 💜
+				</TextPop>
+				<TextPop
+					enterAt={8}
+					fontSize={44}
+					color={COLORS.white}
+					background="#000000cc"
+					rotate={-2}
+					top="41%"
+				>
+					we do it when we say we will 😤
 				</TextPop>
 			</Sequence>
 
