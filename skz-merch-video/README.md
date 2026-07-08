@@ -1,11 +1,17 @@
 # SKZ "RUN IT SEOUL" Merch Teaser Hype Short
 
-A 53.5-second, 1080×1920 (9:16) Remotion video implementing the "SKZ Merch
-Teasers Just Dropped & Stays Are SCREAMING 🔥" brief: energetic gossip/hype
-commentary short with quick cuts, text pops, emoji bursts, real teaser
-footage, and an ElevenLabs voiceover.
+Two 1080×1920 (9:16) Remotion hype shorts, each synced to an ElevenLabs
+voiceover:
 
-## Scene map (synced to public/voiceover.mp3)
+- **`SkzMerchTeaser`** (53.5s) — "SKZ Merch Teasers Just Dropped & Stays
+  Are SCREAMING 🔥" — dark neon look, RUN IT SEOUL teaser footage.
+  Render: `npm run render`.
+- **`SkzTruckPreorder`** (68.6s) — "THIS & THAT Truck Ver. Pre-Order
+  Chaos 🚚" — mint/black/corrugated-metal look matching the THIS & THAT
+  packaging, keychain-tag badges, pre-order receipts (`src/truck/`).
+  Render: `npm run render:truck`.
+
+## SkzMerchTeaser scene map (synced to public/voiceover.mp3)
 
 | Time       | Frames     | Scene       | Content                                                                  |
 | ---------- | ---------- | ----------- | ------------------------------------------------------------------------ |

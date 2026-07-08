@@ -6,6 +6,7 @@
 	"scripts": {
 		"dev": "remotion studio",
 		"render": "remotion render SkzMerchTeaser out/skz-merch-teaser.mp4",
+		"render:truck": "remotion render SkzTruckPreorder out/skz-truck-preorder.mp4",
 		"still": "remotion still SkzMerchTeaser out/thumbnail.png --frame=45"
 	},
 	"dependencies": {
